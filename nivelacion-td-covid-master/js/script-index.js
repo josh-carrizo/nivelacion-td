@@ -57,7 +57,10 @@ function renderRecipe(recipe) {
 */
 function renderActivities(activitiesArray) {
 	if(activitiesArray.length > 0){
-		$('wrapper-message')
+		$('wrapper-message').hide();
+	}
+	for (i=0; i<activitiesArray.length; i ++){
+		renderActivity(activitiesArray[i]);
 	}
 	//console.log('Activities: ', activitiesArray);
 }
@@ -68,7 +71,44 @@ function renderActivities(activitiesArray) {
 * archivo "templates/templates-activity.html"
 */
 function renderActivity(recipe) {
+	var template=`<a href="#" class="item-activity">
+
+	<span class="attribution">
+	  <span class="avatar">
+		<img src="${activity.userAvatar}" class="image-avatar">
+	  </span>
+	  <span class="meta">
+		<span class="author">"${activity.userName}")</span> made 
+		<span class="recipe">"${activity.recipeName}")</span>: "${activity.text}") 
+		<span class="location">&mdash;"${activity.place}")</span>
+	  </span>
+	</span>
+	<div class="bg-image" style="background-image: url('IMAGEN DE RECETA (ATTRIBUTO "image")');"></div>
+  </a>`
+	$('.list-activities').append(template);
 	
 }
 
+$(document).ready(function(){
+	$('.js-menu').hide();
+	console.log("Página lista");
+	$('.js-show-recipe').on('click', function(ev);
+	console.log("Click en el recipe");
+	$('.page').removeClass('make');
+	$('.js-show-make').on('click', function(ev);
+	console.log("Click en el Make");
+	$('.page').addClass('make');
+	$('js-back').
+  });
+
+ $.ajax({
+	  url:'https://swapi.dev/api/people',
+	  mehotd:'GET',
+	  dataType:'json',
+	  success: function(data){
+		  console.log(data);
+	  }
+
+  }
+  )
 
